@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.brand-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar-center {
+  display: flex;
+  list-style: none;
+  gap: 20px; /* Slight gap between the navigation items */
+}
+
+.navbar-center li {
+  font-size: 1rem;
+}
+
+.navbar-center li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navbar-center li a:hover {
+  color: #56b45d; /* Highlight color on hover */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between the icons */
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #56b45d; /* Highlight color for icons on hover */
+}
