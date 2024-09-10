@@ -40,20 +40,59 @@
   color: #56b45d; /* Greenish theme */
 }
 
-/* Style for the categories and options checkboxes */
+/* Hide default checkbox appearance */
+.filter-options input[type="checkbox"] {
+  position: absolute;
+  opacity: 0; /* Hide the default checkbox */
+  cursor: pointer;
+}
+
+/* Custom checkbox container */
 .filter-options label {
-  display: block;
-  margin-bottom: 15px; /* Increased spacing for less squeezing */
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px; /* Space for custom checkbox */
+  margin-bottom: 15px; /* Spacing between items */
   font-size: 0.9rem;
   color: #333;
+  cursor: pointer;
 }
 
-.filter-options input {
-  margin-right: 10px;
+/* Custom checkbox styling */
+.custom-checkbox {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #fff; /* White background */
+  border: 2px solid #ddd; /* Light grey border */
+  border-radius: 3px; /* Rounded corners */
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
-.green-checkbox {
-  accent-color: #56b45d; /* Green color for both checked and unchecked state */
+/* Checkbox checked state styling */
+.filter-options input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #56b45d; /* Green background for checked state */
+  border-color: #56b45d; /* Green border for checked state */
+}
+
+.filter-options input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: "\2714"; /* Unicode check mark */
+  color: #fff; /* White color for check mark */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+/* Ensure the text aligns properly */
+.checkbox-text {
+  margin-left: 10px; /* Space between checkbox and text */
+  vertical-align: middle; /* Align text vertically with checkbox */
 }
 
 /* Styling for the toggle arrow in categories */

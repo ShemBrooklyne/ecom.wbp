@@ -1,0 +1,28 @@
+/* src/components/StarRating.css */
+
+.star-rating {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: #ccc; /* Default color of unselected stars */
+  transition: color 0.2s ease-in-out;
+}
+
+.star.filled {
+  color: #56b45d; /* Green color for selected stars */
+}
+
+.star:hover {
+  color: #56b45d; /* Green color on hover */
+}
+
+.star-rating span {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
