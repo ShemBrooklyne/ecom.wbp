@@ -26,3 +26,25 @@
   font-size: 0.9rem;
   color: #333;
 }
+
+/* Default (larger screens) */
+.star {
+  width: 24px;
+  height: 24px;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .star {
+    width: 18px;
+    height: 18px;
+  }
+}

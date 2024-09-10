@@ -1,3 +1,4 @@
+/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -5,8 +6,14 @@
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
+  z-index: 1000; /* Ensure navbar stays on top */
+  position: fixed; /* Stick to the top of the viewport */
+  top: 0; /* Align to the top */
+  width: 100%; /* Full width */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow to distinguish the navbar */
 }
 
+/* Navbar Sections */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -32,18 +39,28 @@
 
 .navbar-center li {
   font-size: 1rem;
+  position: relative; /* For positioning the underline */
 }
 
 .navbar-center li a {
   text-decoration: none;
   color: #333;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 5px; /* Space for the underline */
+  display: inline-block;
+}
+
+.navbar-center li a.active {
+  color: #56b45d; /* Highlight color for active link */
+  border-bottom: 2px solid #56b45d; /* Green underline for active link */
 }
 
 .navbar-center li a:hover {
   color: #56b45d; /* Highlight color on hover */
+  border-bottom: 2px solid #56b45d;
 }
 
+/* Navbar Right Section */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -59,4 +76,33 @@
 
 .icon:hover {
   color: #56b45d; /* Highlight color for icons on hover */
+}
+
+/* Default (larger screens) */
+.navbar {
+  padding: 1rem 2rem;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar-center {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .navbar-right {
+    margin-top: 10px;
+  }
+}
+
+/* Content Adjustment */
+body {
+  margin: 0;
+  padding-top: 60px; /* Adjust according to navbar height to avoid content overlap */
 }

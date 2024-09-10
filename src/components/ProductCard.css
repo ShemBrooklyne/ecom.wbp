@@ -1,0 +1,49 @@
+/* Product Card Styling */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 15px; /* Increased margin for better spacing */
+  padding: 15px; /* Increased padding for better spacing */
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  width: calc(33.333% - 30px); /* Responsive width for 3 columns layout */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-card img {
+  width: 100px; /* Adjusted size */
+  height: 100px; /* Adjusted size */
+  object-fit: cover; /* Ensures image covers the space without distortion */
+  border-radius: 5px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+  .product-card {
+    width: calc(50% - 30px); /* Two columns layout */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(100% - 30px); /* Single column layout */
+  }
+}

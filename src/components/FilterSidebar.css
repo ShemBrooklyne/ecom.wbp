@@ -155,3 +155,26 @@
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Default (larger screens) */
+.filter-sidebar {
+  width: 250px;
+  padding: 20px;
+  position: fixed;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .filter-sidebar {
+    width: 200px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .filter-sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+}

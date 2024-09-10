@@ -1,218 +1,210 @@
-import React, { useState } from 'react';
-import StarRating from './StarRating';
-import { FaSearch, FaTimes } from 'react-icons/fa'; // Official icons for search and cancel
-import './Shop.css';
-
-const products = [
-    // Sample product data
-    {
-        id: 1,
-        name: "Product 1",
-        image: "https://via.placeholder.com/200x150",
-        smallImages: [
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50"
-        ],
-        description: "This is a detailed description of Product 1. It may be long and should have a read more option if it's too lengthy.",
-        rating: 4,
-        price: "$99.99"
-    },
-    {
-        id: 1,
-        name: "Product 1",
-        image: "https://via.placeholder.com/200x150",
-        smallImages: [
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50"
-        ],
-        description: "This is a detailed description of Product 1. It may be long and should have a read more option if it's too lengthy.",
-        rating: 4,
-        price: "$99.99"
-    },
-    {
-        id: 1,
-        name: "Product 1",
-        image: "https://via.placeholder.com/200x150",
-        smallImages: [
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50"
-        ],
-        description: "This is a detailed description of Product 1. It may be long and should have a read more option if it's too lengthy.",
-        rating: 4,
-        price: "$99.99"
-    },
-    {
-        id: 1,
-        name: "Product 1",
-        image: "https://via.placeholder.com/200x150",
-        smallImages: [
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50",
-            "https://via.placeholder.com/50"
-        ],
-        description: "This is a detailed description of Product 1. It may be long and should have a read more option if it's too lengthy.",
-        rating: 4,
-        price: "$99.99"
-    }
-    // Add more products as needed
-];
+import React, { useState } from "react";
+import FilterSidebar from "./FilterSidebar";
+import ProductCard from "./ProductCard";
+import "./Shop.css";
 
 const Shop = () => {
-    const [searchQuery, setSearchQuery] = useState('');
+    const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const [selectedSort, setSelectedSort] = useState('');
-    const [isDetailsVisible, setIsDetailsVisible] = useState(false);
-    const [expandedDescriptions, setExpandedDescriptions] = useState({}); // To track which descriptions are expanded
 
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);
-    };
+    // Sample products data (Replace with actual data source or fetching logic)
+    const products = [
+        {
+            id: 1,
+            name: "Product 1",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/30",
+                "https://via.placeholder.com/30",
+                "https://via.placeholder.com/30",
+                "https://via.placeholder.com/30",
+                "https://via.placeholder.com/30"
+            ],
+            description: "This is a detailed description of Product 1. It may be long and should have a read more option if it's too lengthy."
+        },
+        {
+            id: 2,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 3,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 4,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 5,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 6,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 7,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 8,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 9,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+        {
+            id: 10,
+            name: "Product 2",
+            image: "https://via.placeholder.com/150",
+            relatedImages: [
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60",
+                "https://via.placeholder.com/60"
+            ],
+            description: "This is a description for Product 2."
+        },
+    ];
 
-    const handleSortSelect = (sortOption) => {
-        setSelectedSort(sortOption);
-    };
-
+    // Function to handle product click and open details panel
     const handleProductClick = (product) => {
         setSelectedProduct(product);
-        setIsDetailsVisible(true);
+        setIsProductDetailsOpen(true);
     };
 
-    const handleCloseDetails = () => {
-        setIsDetailsVisible(false);
-    };
-
-    const toggleDescription = (productId) => {
-        setExpandedDescriptions((prevState) => ({
-            ...prevState,
-            [productId]: !prevState[productId],
-        }));
-    };
-
-    const renderSmallImages = (images) => {
-        const visibleImages = images.slice(0, 4);
-        const additionalImagesCount = images.length - 4;
-
-        return (
-            <div className="details-small-images">
-                {visibleImages.map((img, index) => (
-                    <img key={index} src={img} alt={`Related ${index}`} className="small-image" />
-                ))}
-                {additionalImagesCount > 0 && (
-                    <div className="small-image additional-images">
-                        <span>+{additionalImagesCount}</span>
-                    </div>
-                )}
-            </div>
-        );
+    // Function to close the product details panel
+    const closeProductDetails = () => {
+        setIsProductDetailsOpen(false);
     };
 
     return (
-        <div className="shop">
-            {/* Search Bar */}
-            <div className="search-bar-container">
-                <div className="search-bar">
-                    <FaSearch className="search-icon" />
+        <div className="shop-page">
+            <FilterSidebar />
+
+            {/* Middle Section: Products and Sorting */}
+            <div className={`product-section ${isProductDetailsOpen ? 'shifted' : ''}`}>
+                <div className="sort-and-search">
                     <input
                         type="text"
-                        placeholder="Search..."
-                        value={searchQuery}
-                        onChange={handleSearchChange}
+                        className="search-bar"
+                        placeholder="Search products..."
                     />
-                    {searchQuery && <FaTimes className="cancel-icon" onClick={() => setSearchQuery('')} />}
+
+                    <div className="sort-options">
+                        <button>Relevance</button>
+                        <button>Popular</button>
+                        <button>Most New</button>
+                        <button>Price</button>
+                    </div>
+                </div>
+
+                {/* Products Container */}
+                <div className="products-container">
+                    <div className="product-grid">
+                        {products.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                                onClick={() => handleProductClick(product)}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            {/* Search Results Text */}
-            <div className="search-results-text">
-                <p>Search result for "<span id="search-query">{searchQuery}</span>"</p>
-            </div>
-
-            {/* Sort Options */}
-            <div className="sort-options">
-                {['Relevance', 'Popular', 'Most New', 'Price'].map(option => (
-                    <button
-                        key={option}
-                        className={`sort-option ${selectedSort === option ? 'selected' : ''}`}
-                        onClick={() => handleSortSelect(option)}
-                    >
-                        {option}
-                    </button>
-                ))}
-            </div>
-
-            {/* Product Cards */}
-            <div className="product-cards">
-                {products.map(product => (
-                    <div
-                        key={product.id}
-                        className="card"
-                        onClick={() => handleProductClick(product)}
-                    >
-                        <img src={product.image} alt="Product" className="card-image" />
-                        <div className="card-content">
-                            <h4 className="card-title">{product.name}</h4>
-                            <StarRating onRatingSelect={() => { }} /> {/* Implement rating selection as needed */}
-                            <div className="card-price">
-                                <p className="price-label">Price:</p>
-                                <p className="price-value">{product.price}</p>
-                            </div>
-                            <button className="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
             {/* Product Details Panel */}
-            {selectedProduct && isDetailsVisible && (
-                <div className="details-panel">
-                    <button className="close-btn" onClick={handleCloseDetails}>X</button>
-                    <img src={selectedProduct.image} alt="Product" className="details-image" />
-                    {renderSmallImages(selectedProduct.smallImages)}
-                    <h3 className="details-title">{selectedProduct.name}</h3>
-                    <p className="details-description">
-                        {expandedDescriptions[selectedProduct.id]
-                            ? selectedProduct.description
-                            : `${selectedProduct.description.substring(0, 100)}... `}
-                        {selectedProduct.description.length > 100 && (
-                            <a
-                                href="#!"
-                                className="read-more"
-                                onClick={() => toggleDescription(selectedProduct.id)}
-                            >
-                                {expandedDescriptions[selectedProduct.id] ? 'Read less' : 'Read more'}
-                            </a>
+            {selectedProduct && (
+                <div
+                    className={`product-details-panel ${isProductDetailsOpen ? "active" : ""
+                        }`}
+                >
+                    <div className="close-button" onClick={closeProductDetails}>X</div>
+                    <img src={selectedProduct.image} alt={selectedProduct.name} className="product-detail-image" />
+                    <div className="additional-images">
+                        {selectedProduct.relatedImages.slice(0, 3).map((image, index) => (
+                            <img key={index} src={image} alt={`Related ${index}`} />
+                        ))}
+                        {selectedProduct.relatedImages.length > 3 && (
+                            <span className="additional-count">
+                                +{selectedProduct.relatedImages.length - 3}
+                            </span>
+                        )}
+                    </div>
+                    <h3 className="product-detail-name">{selectedProduct.name}</h3>
+                    <p className="product-detail-description">
+                        {selectedProduct.description.length > 100 ? (
+                            <>
+                                {selectedProduct.description.substring(0, 100)}...
+                                <span className="read-more">Read More</span>
+                            </>
+                        ) : (
+                            selectedProduct.description
                         )}
                     </p>
                     <div className="details-tabs">
                         <button className="tab-button active">Details</button>
                         <button className="tab-button">Reviews (10)</button> {/* Example review count */}
                     </div>
-                    <div className="details-actions">
-                        <button className="heart-btn">❤️</button>
-                        <button className="add-to-cart-btn">Add to Cart</button>
+                    <div className="product-detail-actions">
+                        <button className="love-heart">❤️</button>
+                        <button className="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
             )}
