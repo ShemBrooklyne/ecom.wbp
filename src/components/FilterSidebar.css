@@ -1,180 +1,181 @@
 /* Main filter sidebar container */
 .filter-sidebar {
-  position: fixed;
-  top: 70px; /* Prevent overlap with navbar */
-  left: 0;
-  height: calc(100% - 70px);
-  width: 250px;
-  background-color: #fff;
-  padding: 20px;
-  overflow-y: auto;
-  border-right: 1px solid #ddd;
-}
-
-/* Filter title styling */
-.filter-title-card {
-  padding-bottom: 15px; /* Add space below the filter title */
-  border-bottom: 1px solid #ddd; /* Line separator */
-  margin-bottom: 20px;
-}
-
-.filter-title-card h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  text-align: left; /* Align text to the left */
-}
-
-/* Filter section general styling */
-.filter-section {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd; /* Separator between sections */
-  padding-bottom: 15px;
-}
-
-/* Section headings, such as Categories, Price Range, and Rating */
-.filter-section h4 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #56b45d; /* Greenish theme */
-}
-
-/* Hide default checkbox appearance */
-.filter-options input[type="checkbox"] {
-  position: absolute;
-  opacity: 0; /* Hide the default checkbox */
-  cursor: pointer;
-}
-
-/* Custom checkbox container */
-.filter-options label {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-left: 30px; /* Space for custom checkbox */
-  margin-bottom: 15px; /* Spacing between items */
-  font-size: 0.9rem;
-  color: #333;
-  cursor: pointer;
-}
-
-/* Custom checkbox styling */
-.custom-checkbox {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background-color: #fff; /* White background */
-  border: 2px solid #ddd; /* Light grey border */
-  border-radius: 3px; /* Rounded corners */
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-/* Checkbox checked state styling */
-.filter-options input[type="checkbox"]:checked + .custom-checkbox {
-  background-color: #56b45d; /* Green background for checked state */
-  border-color: #56b45d; /* Green border for checked state */
-}
-
-.filter-options input[type="checkbox"]:checked + .custom-checkbox::after {
-  content: "\2714"; /* Unicode check mark */
-  color: #fff; /* White color for check mark */
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 14px;
-}
-
-/* Ensure the text aligns properly */
-.checkbox-text {
-  margin-left: 10px; /* Space between checkbox and text */
-  vertical-align: middle; /* Align text vertically with checkbox */
-}
-
-/* Styling for the toggle arrow in categories */
-.toggle-arrow {
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-/* Price Range styling */
-.price-range-inputs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.price-input {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Set price button styling */
-.set-price-btn {
-  width: 100%;
-  padding: 8px;
-  background-color: #56b45d;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.set-price-btn:hover {
-  background-color: #4ba051;
-}
-
-/* Rating section styling */
-.rating-label {
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.rating-label input {
-  margin-right: 10px;
-}
-
-.rating-label span {
-  margin-right: 5px;
-}
-
-/* Ad section styling */
-.ad-image {
-  margin-top: 20px;
-}
-
-.rounded-image {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Default (larger screens) */
-.filter-sidebar {
-  width: 250px;
-  padding: 20px;
-  position: fixed;
-}
-
-/* Tablets */
-@media (max-width: 768px) {
-  .filter-sidebar {
-    width: 200px;
+    position: fixed;
+    top: 70px; /* Prevent overlap with navbar */
+    left: 0;
+    height: calc(100% - 70px);
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    transition: width 0.3s ease; /* Smooth transition for width changes */
   }
-}
-
-/* Mobile Phones */
-@media (max-width: 480px) {
-  .filter-sidebar {
-    width: 100%;
+  
+  /* Filter title styling */
+  .filter-title-card {
+    padding-bottom: 15px; /* Add space below the filter title */
+    border-bottom: 1px solid #ddd; /* Line separator */
+    margin-bottom: 20px;
+  }
+  
+  .filter-title-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Filter section general styling */
+  .filter-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Separator between sections */
+    padding-bottom: 15px;
+  }
+  
+  /* Section headings, such as Categories, Price Range, and Rating */
+  .filter-section h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #56b45d; /* Greenish theme */
+  }
+  
+  /* Hide default checkbox appearance */
+  .filter-options input[type="checkbox"] {
+    position: absolute;
+    opacity: 0; /* Hide the default checkbox */
+    cursor: pointer;
+  }
+  
+  /* Custom checkbox container */
+  .filter-options label {
+    display: flex;
+    align-items: center;
     position: relative;
-    height: auto;
+    padding-left: 30px; /* Space for custom checkbox */
+    margin-bottom: 15px; /* Spacing between items */
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
   }
-}
+  
+  /* Custom checkbox styling */
+  .custom-checkbox {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fff; /* White background */
+    border: 2px solid #ddd; /* Light grey border */
+    border-radius: 3px; /* Rounded corners */
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  /* Checkbox checked state styling */
+  .filter-options input[type="checkbox"]:checked + .custom-checkbox {
+    background-color: #56b45d; /* Green background for checked state */
+    border-color: #56b45d; /* Green border for checked state */
+  }
+  
+  .filter-options input[type="checkbox"]:checked + .custom-checkbox::after {
+    content: "\2714"; /* Unicode check mark */
+    color: #fff; /* White color for check mark */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+  }
+  
+  /* Ensure the text aligns properly */
+  .checkbox-text {
+    margin-left: 10px; /* Space between checkbox and text */
+    vertical-align: middle; /* Align text vertically with checkbox */
+  }
+  
+  /* Styling for the toggle arrow in categories */
+  .toggle-arrow {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  /* Price Range styling */
+  .price-range-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .price-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Set price button styling */
+  .set-price-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #56b45d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .set-price-btn:hover {
+    background-color: #4ba051;
+  }
+  
+  /* Rating section styling */
+  .rating-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  
+  .rating-label input {
+    margin-right: 10px;
+  }
+  
+  .rating-label span {
+    margin-right: 5px;
+  }
+  
+  /* Ad section styling */
+  .ad-image {
+    margin-top: 20px;
+  }
+  
+  .rounded-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Default (larger screens) */
+  .filter-sidebar {
+    width: 250px;
+  }
+  
+  /* Tablets */
+  @media (max-width: 768px) {
+    .filter-sidebar {
+      width: 200px;
+    }
+  }
+  
+  /* Mobile Phones */
+  @media (max-width: 480px) {
+    .filter-sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+      top: 0; /* Reset top position for mobile */
+    }
+  }
+  

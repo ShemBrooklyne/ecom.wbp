@@ -9,19 +9,29 @@
 .filter-sidebar {
   width: 250px; /* Width for the filter sidebar */
   flex-shrink: 0; /* Prevent shrinking */
+  position: fixed;
+  top: 70px; /* Prevent overlap with navbar */
+  left: 0;
+  height: calc(100% - 70px);
+  background-color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  z-index: 1; /* Ensure it stays below other elements */
 }
 
 /* Product Section Styling */
 .product-section {
   flex: 1; /* Take remaining space */
   padding: 20px;
-  transition: margin-left 0.3s ease;
-  /* Ensure transition for margin adjustment when details panel is opened */
+  margin-left: 250px; /* Adjust for the width of the filter sidebar */
+  transition: margin-right 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
-/* Adjust margin when product details panel is open */
+/* Adjust margin and transform when product details panel is open */
 .product-section.shifted {
-  margin-right: 400px; /* Adjust according to the width of the details panel */
+  transform: translateX(-400px); /* Adjust according to the width of the details panel */
 }
 
 /* Sort and Search Section */
@@ -201,13 +211,13 @@
 /* Responsive Layout */
 @media (max-width: 1200px) {
   .product-section.shifted {
-    margin-right: 300px; /* Adjust for smaller screens */
+    transform: translateX(-300px); /* Adjust for smaller screens */
   }
 }
 
 @media (max-width: 768px) {
   .product-section.shifted {
-    margin-right: 0; /* Remove margin for smaller screens */
+    transform: translateX(0); /* Remove shift for smaller screens */
   }
   .sort-and-search {
     flex-direction: column;
