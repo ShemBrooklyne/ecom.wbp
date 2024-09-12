@@ -218,11 +218,18 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+
+/* Adjustments for smaller screens */
+@media (max-width: 576px) {
   .filter-sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid #ddd;
+    width: 100%;
+    height: auto; /* Let sidebar adjust to content height */
+    position: relative; /* Reset position for small screens */
+    top: auto; /* Remove fixed top */
+  }
+
+  .filter-title-card h3 {
+    font-size: 1rem;
   }
 }
+

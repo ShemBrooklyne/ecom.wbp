@@ -99,7 +99,7 @@
 }
 
 /* Responsive Layout */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .product-card {
         width: calc(50% - 30px);
     }
@@ -109,4 +109,31 @@
     .product-card {
         width: calc(100% - 30px);
     }
+} */
+
+
+/* Adjust product card for tablet and smaller devices */
+@media (max-width: 576px) {
+    .product-card {
+        width: 100%; /* Full width on mobile */
+        margin: 10px 0; /* Adjust margins for smaller screens */
+    }
+    
+    .product-card img {
+        width: 120px; /* Slightly reduce image size on smaller screens */
+        height: 200px;
+    }
+    
+    .product-name {
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .product-footer {
+        flex-direction: column;
+    }
+
+    .add-to-cart-btn {
+        margin-top: 10px;
+    }
 }
+

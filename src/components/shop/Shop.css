@@ -89,24 +89,28 @@
   box-sizing: border-box;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .shop-container {
-    flex-direction: column;
-  }
-
-  .filter-sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-    position: relative; /* Make sidebar relative in mobile view */
-  }
-
-  .main-content {
-    margin-left: 0; /* Reset margin for mobile view */
-  }
-}
-
 .details-open .main-content {
   margin-right: 400px; /* Width of the ProductDetailsPanel */
 }
+
+/* Further adjustments for mobile devices */
+@media (max-width: 576px) {
+  .sort-and-search {
+    flex-direction: column;
+  }
+
+  .sort-options {
+    flex-wrap: wrap;
+  }
+
+  .product-grid {
+    justify-content: center; /* Center the product grid */
+  }
+
+  .product-card {
+    width: calc(100% - 20px); /* Full width with margin */
+  }
+}
+
+
+

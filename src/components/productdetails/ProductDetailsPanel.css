@@ -137,3 +137,33 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+/* Responsive adjustments for product details panel */
+@media (max-width: 768px) {
+    .product-details-panel {
+        width: 100%; /* Full width for mobile */
+        height: 100%;
+    }
+
+    .product-detail-image {
+        width: 100%; /* Make image responsive */
+    }
+
+    .additional-images {
+        gap: 5px; /* Reduce gap between images */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-details-panel {
+        padding: 10px;
+    }
+
+    .product-detail-name {
+        font-size: 1.2rem;
+    }
+
+    .tab-button {
+        font-size: 0.8rem;
+    }
+}

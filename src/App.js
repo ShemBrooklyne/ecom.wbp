@@ -10,7 +10,7 @@ function App() {
         <Router>
             <Navbar />
             <div className="app-container">
-                <FilterSidebar /> {/* Always displayed */}
+                {/* <FilterSidebar /> Always displayed */}
                 <div className="content-area">
                     <Routes>
                         <Route path="/" element={<Shop />} /> {/* Default route */}
