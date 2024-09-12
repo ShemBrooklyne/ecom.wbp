@@ -1,0 +1,10 @@
+[build]
+  publish = "build" # or the directory where your production build files are located
+  command = "npm run build" # or the command you use to build your project
+
+[build.environment]
+  NODE_VERSION = "22.7.0" # specify the Node version you're using locally
+  NODE_OPTIONS = "--openssl-legacy-provider"  # Add this line for OpenSSL legacy provider
+
+[context.production.environment]
+  NODE_ENV = "production"
