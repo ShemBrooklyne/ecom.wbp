@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductCard.css';
-import StarRating from './StarRating';
+import StarRating from '../startrating/StarRating';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
 const ProductCard = ({ product, onClick, isHeartClicked, onHeartClick, isAddedToCart, onAddToCart }) => {

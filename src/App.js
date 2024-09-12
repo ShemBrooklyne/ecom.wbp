@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Shop from './components/Shop';
-import FilterSidebar from "./components/FilterSidebar";
+import Navbar from "./components/navbar/Navbar";
+import Shop from './components/shop/Shop';
+import FilterSidebar from "./components/sidebar/FilterSidebar";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // function App() {

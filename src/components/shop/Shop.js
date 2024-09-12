@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
-import FilterSidebar from "./FilterSidebar";
-import ProductCard from "./ProductCard";
-import ProductDetailsPanel from "./ProductDetailsPanel";
-import products from "../data/productsData";
-
+import FilterSidebar from "../sidebar/FilterSidebar";
+import ProductCard from "../productcard/ProductCard";
+import ProductDetailsPanel from "../productdetails/ProductDetailsPanel";
+import products from "data/productsData";
 import "./Shop.css";
 
 const Shop = () => {

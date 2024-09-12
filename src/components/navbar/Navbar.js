@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaShoppingCart, FaHeart, FaUserCircle } from 'react-icons/fa'; // Icons for cart, heart, and profile
-import brandIcon from "../assets/images/oyotee_logo.png";
+import brandIcon from "../../assets/images/oyotee_logo.png";
 import './Navbar.css';
 
 const Navbar = () => {

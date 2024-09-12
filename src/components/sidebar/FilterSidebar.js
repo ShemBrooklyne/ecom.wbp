@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./FilterSidebar.css";
-import StarRating from "./StarRating";
+import StarRating from "../startrating/StarRating";
 
 const FilterSidebar = () => {  // eslint-disable-next-line
     const [rating, setRating] = useState(0);
