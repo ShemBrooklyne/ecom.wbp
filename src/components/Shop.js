@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import FilterSidebar from "./FilterSidebar";
 import ProductCard from "./ProductCard";
 import ProductDetailsPanel from "./ProductDetailsPanel";
@@ -7,6 +8,9 @@ import "./Shop.css";
 const Shop = () => {
     const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [selectedSortOption, setSelectedSortOption] = useState("");
+
 
     // Sample products data 
     const products = [
@@ -134,17 +138,49 @@ const Shop = () => {
         setSelectedProduct(null);
     };
 
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleClearSearch = () => {
+        setSearchQuery("");
+    };
+
+    const handleSortClick = (option) => {
+        setSelectedSortOption(option);
+    };
+
     return (
         <div className={`shop-container ${isProductDetailsOpen ? "details-open" : ""}`}>
             <FilterSidebar />
             <div className="main-content">
                 <div className="sort-and-search">
-                    <input type="text" className="search-bar" placeholder="Search products..." />
+                    <div className="search-container">
+                        <AiOutlineSearch className="search-icon" />
+                        <input
+                            type="text"
+                            className="search-bar"
+                            placeholder="Search products..."
+                            value={searchQuery}
+                            onChange={handleSearchChange}
+                        />
+                        {searchQuery && (
+                            <AiOutlineClose className="cancel-icon" onClick={handleClearSearch} />
+                        )}
+                    </div>
+                    <div className="search-results">
+                        Search results for "{searchQuery}"
+                    </div>
                     <div className="sort-options">
-                        <button>Relevance</button>
-                        <button>Popular</button>
-                        <button>Most New</button>
-                        <button>Price</button>
+                        {["Relevance", "Popular", "Most New", "Price"].map(option => (
+                            <button
+                                key={option}
+                                className={`sort-button ${selectedSortOption === option ? "selected" : ""}`}
+                                onClick={() => handleSortClick(option)}
+                            >
+                                {option}
+                            </button>
+                        ))}
                     </div>
                 </div>
                 <div className="products-container">
@@ -156,7 +192,7 @@ const Shop = () => {
                 </div>
             </div>
             <div className="column show">
-            <ProductDetailsPanel selectedProduct={selectedProduct} onClose={closeProductDetails} />
+                <ProductDetailsPanel selectedProduct={selectedProduct} onClose={closeProductDetails} />
             </div>
         </div>
     );
