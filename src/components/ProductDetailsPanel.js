@@ -40,23 +40,31 @@ const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartC
         return null;
     }
 
+    const { image, relatedImages, name, description } = selectedProduct;
+    const displayedImages = relatedImages.slice(0, 4); // Show up to 4 images
+    const additionalImagesCount = relatedImages.length - 4;
+
     return (
         <div className={`product-details-panel ${isProductDetailsOpen ? "active" : ""}`}>
             <div className="close-button" onClick={closeProductDetails}>x</div>
-            <img src={selectedProduct.image} alt={selectedProduct.name} className="product-detail-image" />
+            <img src={image} alt={name} className="product-detail-image" />
             <div className="additional-images">
-                {selectedProduct.relatedImages.slice(0, 4).map((image, index) => (
-                    <img key={index} src={image} alt={`Related ${index}`} />
+                {displayedImages.map((img, index) => (
+                    <div key={index} className="image-wrapper">
+                        <img src={img} alt={`Related ${index}`} />
+                        {index === displayedImages.length - 1 && additionalImagesCount > 0 && (
+                            <div className="additional-images-overlay">
+                                +{additionalImagesCount}
+                            </div>
+                        )}
+                    </div>
                 ))}
-                {selectedProduct.relatedImages.length > 4 && (
-                    <span className="additional-count">+{selectedProduct.relatedImages.length - 4}</span>
-                )}
             </div>
-            <h3 className="product-detail-name">{selectedProduct.name}</h3>
+            <h3 className="product-detail-name">{name}</h3>
             <p className="product-detail-description">
                 {isDescriptionExpanded 
-                    ? selectedProduct.description
-                    : `${selectedProduct.description.substring(0, 100)}...`
+                    ? description
+                    : `${description.substring(0, 100)}...`
                 }
                 <span 
                     className="read-more" 
