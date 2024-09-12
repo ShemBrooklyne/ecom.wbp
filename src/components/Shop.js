@@ -10,6 +10,7 @@ const Shop = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedSortOption, setSelectedSortOption] = useState("");
+    const [heartState, setHeartState] = useState({}); // Heart state management
 
 
     // Sample products data 
@@ -150,6 +151,13 @@ const Shop = () => {
         setSelectedSortOption(option);
     };
 
+    const handleHeartClick = (productId) => {
+        setHeartState(prevState => ({
+            ...prevState,
+            [productId]: !prevState[productId]
+        }));
+    };
+
     return (
         <div className={`shop-container ${isProductDetailsOpen ? "details-open" : ""}`}>
             <FilterSidebar />
@@ -186,13 +194,24 @@ const Shop = () => {
                 <div className="products-container">
                     <div className="product-grid">
                         {products.map((product) => (
-                            <ProductCard key={product.id} product={product} onClick={() => handleProductClick(product)} />
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                                onClick={() => handleProductClick(product)}
+                                isHeartClicked={heartState[product.id]}
+                                onHeartClick={() => handleHeartClick(product.id)}
+                            />
                         ))}
                     </div>
                 </div>
             </div>
             <div className="column show">
-                <ProductDetailsPanel selectedProduct={selectedProduct} onClose={closeProductDetails} />
+                <ProductDetailsPanel
+                    selectedProduct={selectedProduct}
+                    onClose={closeProductDetails}
+                    isHeartActive={heartState[selectedProduct?.id]}
+                    onHeartClick={() => handleHeartClick(selectedProduct?.id)}
+                />
             </div>
         </div>
     );

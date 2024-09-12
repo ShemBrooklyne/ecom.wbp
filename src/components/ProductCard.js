@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ProductCard.css';
 import StarRating from './StarRating';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-const ProductCard = ({ product, onClick }) => {
-    const [isHeartClicked, setHeartClicked] = useState(false);
-    const [isAddedToCart, setAddedToCart] = useState(false);
-
+const ProductCard = ({ product, onClick, isHeartClicked, onHeartClick }) => {
     const handleHeartClick = (e) => {
         e.stopPropagation();
-        setHeartClicked(!isHeartClicked);
+        onHeartClick(); // Call the parent function
     };
 
     const handleAddToCart = (e) => {
         e.stopPropagation();
-        setAddedToCart(true);
+        // Add to cart functionality
     };
 
     return (
@@ -41,10 +38,10 @@ const ProductCard = ({ product, onClick }) => {
                     <span>Price: </span>${(product.price || 0).toFixed(2)}
                 </div>
                 <button
-                    className={`add-to-cart ${isAddedToCart ? 'added' : ''}`}
+                    className={`add-to-cart`}
                     onClick={handleAddToCart}
                 >
-                    {isAddedToCart ? 'Added' : 'Add to Cart'}
+                    Add to Cart
                 </button>
             </div>
         </div>

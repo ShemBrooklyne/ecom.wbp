@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import "./ProductDetailsPanel.css";
 
-const ProductDetailsPanel = ({ selectedProduct, onClose }) => {
+const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartClick }) => {
     const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(true);
+    const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+    const [activeTab, setActiveTab] = useState("Details");
 
     useEffect(() => {
         if (selectedProduct) {
@@ -15,6 +18,18 @@ const ProductDetailsPanel = ({ selectedProduct, onClose }) => {
     const closeProductDetails = () => {
         setIsProductDetailsOpen(false);
         if (onClose) onClose();
+    };
+
+    const toggleDescription = () => {
+        setIsDescriptionExpanded(!isDescriptionExpanded);
+    };
+
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+    };
+
+    const handleHeartClick = () => {
+        onHeartClick(); // Call the parent function
     };
 
     if (!selectedProduct) {
@@ -35,22 +50,43 @@ const ProductDetailsPanel = ({ selectedProduct, onClose }) => {
             </div>
             <h3 className="product-detail-name">{selectedProduct.name}</h3>
             <p className="product-detail-description">
-                {selectedProduct.description.length > 100 ? (
-                    <>
-                        {selectedProduct.description.substring(0, 100)}...
-                        <span className="read-more">Read More</span>
-                    </>
-                ) : (
-                    selectedProduct.description
-                )}
+                {isDescriptionExpanded 
+                    ? selectedProduct.description
+                    : `${selectedProduct.description.substring(0, 100)}...`
+                }
+                <span 
+                    className="read-more" 
+                    onClick={toggleDescription}
+                >
+                    {isDescriptionExpanded ? " Read Less" : " Read More"}
+                </span>
             </p>
             <div className="details-tabs">
-                <button className="tab-button active">Details</button>
-                <button className="tab-button">Reviews (10)</button>
+                <button 
+                    className={`tab-button ${activeTab === "Details" ? "active" : ""}`} 
+                    onClick={() => handleTabClick("Details")}
+                >
+                    Details
+                </button>
+                <button 
+                    className={`tab-button ${activeTab === "Reviews" ? "active" : ""}`} 
+                    onClick={() => handleTabClick("Reviews")}
+                >
+                    Reviews (10)
+                </button>
             </div>
             <div className="product-detail-actions">
-                <button className="love-heart"><span role="img" aria-label="heart">❤️</span></button>
-                <button className="add-to-cart">Add to Cart</button>
+                <button 
+                    className={`love-heart ${isHeartActive ? "active" : ""}`} 
+                    onClick={handleHeartClick}
+                >
+                    {isHeartActive ? <AiFillHeart /> : <AiOutlineHeart />}
+                </button>
+                <button 
+                    className="add-to-cart" 
+                >
+                    Add to Cart
+                </button>
             </div>
         </div>
     );
