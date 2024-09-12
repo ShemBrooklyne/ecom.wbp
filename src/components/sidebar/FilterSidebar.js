@@ -66,7 +66,6 @@ const FilterSidebar = () => {  // eslint-disable-next-line
                     <img src={ad} alt="Ad" className="rounded-image" />
                 </div>
                 <div className="overlay">
-                    <h4 className="overlay-title"><b>GET 30% OFF    </b></h4>
                     <p className="overlay-text">Share your referral code and get a discount!</p>
                     <button className="share-button">Share</button>
                 </div>

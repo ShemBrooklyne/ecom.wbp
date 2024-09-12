@@ -81,16 +81,16 @@
 .product-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 3px;
 }
 
 .product-card {
-  width: 260px;
+  width: 250px;
   box-sizing: border-box;
 }
 
 .details-open .main-content {
-  margin-right: 400px; /* Width of the ProductDetailsPanel */
+  margin-right: 300px; /* Width of the ProductDetailsPanel */
 }
 
 /* Further adjustments for mobile devices */
