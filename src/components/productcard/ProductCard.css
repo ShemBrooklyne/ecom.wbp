@@ -13,6 +13,12 @@
     position: relative;
 }
 
+.product-card img {
+    width: 150px; 
+    height: 250px;
+    object-fit: cover; /* Ensure images cover the defined dimensions */
+}
+
 .product-card:hover {
     transform: scale(1.02);
 }

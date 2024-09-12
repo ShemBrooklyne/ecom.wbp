@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaShoppingCart, FaHeart, FaUserCircle } from 'react-icons/fa'; // Icons for cart, heart, and profile
+import { NavLink } from 'react-router-dom'; // Import NavLink for active styling
+import { FaShoppingCart, FaHeart, FaUserCircle } from 'react-icons/fa';
 import brandIcon from "../../assets/images/oyotee_logo.png";
 import './Navbar.css';
 
@@ -14,10 +15,10 @@ const Navbar = () => {
 
       {/* Center Section: Navigation Links */}
       <ul className="navbar-center">
-        <li><a href="/shop">Shop</a></li>
-        <li><a href="/plant-care">Plant Care</a></li>
-        <li><a href="/workshops">Workshops</a></li>
-        <li><a href="/blogs">Blogs</a></li>
+        <li><NavLink to="/shop" activeClassName="active">Shop</NavLink></li>
+        <li><NavLink to="/plant-care" activeClassName="active">Plant Care</NavLink></li>
+        <li><NavLink to="/workshops" activeClassName="active">Workshops</NavLink></li>
+        <li><NavLink to="/blogs" activeClassName="active">Blogs</NavLink></li>
       </ul>
 
       {/* Right Section: Icons (Cart, Heart, Profile) */}

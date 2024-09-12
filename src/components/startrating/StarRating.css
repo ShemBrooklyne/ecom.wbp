@@ -14,11 +14,11 @@
 }
 
 .star.filled {
-  color: #56b45d; /* Green color for selected stars */
+  color: gold; /* Gold color for selected stars */
 }
 
 .star:hover {
-  color: #56b45d; /* Green color on hover */
+  color: gold; /* Gold color on hover */
 }
 
 .star-rating span {

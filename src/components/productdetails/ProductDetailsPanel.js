@@ -46,7 +46,7 @@ const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartC
 
     return (
         <div className={`product-details-panel ${isProductDetailsOpen ? "active" : ""}`}>
-            <div className="close-button" onClick={closeProductDetails}>x</div>
+            <div className="close-button" onClick={closeProductDetails}>X</div>
             <img src={image} alt={name} className="product-detail-image" />
             <div className="additional-images">
                 {displayedImages.map((img, index) => (

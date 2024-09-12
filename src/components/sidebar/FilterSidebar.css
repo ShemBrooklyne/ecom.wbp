@@ -38,8 +38,8 @@
 /* Section headings, such as Categories, Price Range, and Rating */
 .filter-section h4 {
   font-size: 1rem;
-  margin-bottom: 10px;
-  color: #56b45d; /* Greenish theme */
+  margin-bottom: 20px;
+  color: black;
 }
 
 /* Hide default checkbox appearance */
@@ -147,10 +147,70 @@
   margin-right: 5px;
 }
 
-/* Ad section styling */
-.ad-image {
-  margin-top: 20px;
+/* Container for the ad section */
+.ad-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px; /* Apply border radius to the entire container */
+  overflow: hidden; /* Ensure content respects the border radius */
 }
+
+/* Style the ad image with border radius */
+.ad-image img {
+  display: block;
+  width: 100%; /* Adjust as needed */
+  height: auto; /* Adjust as needed */
+  border-radius: 8px; /* Apply border radius to the image */
+}
+
+/* Style the overlay with a blur effect */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  color: #fff; /* White text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px; /* Adjust as needed */
+  box-sizing: border-box;
+  border-radius: 8px; /* Apply border radius to the overlay */
+}
+
+/* Style the overlay title */
+.overlay-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Style the overlay text */
+.overlay-text {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Style the share button */
+.share-button {
+  background-color: gold;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+  background-color: #d4af37; /* Darker gold on hover */
+}
+
 
 .rounded-image {
   width: 100%;

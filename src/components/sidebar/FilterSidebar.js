@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./FilterSidebar.css";
 import StarRating from "../startrating/StarRating";
+import ad from "../../assets/images/ad.jpg"
 
 const FilterSidebar = () => {  // eslint-disable-next-line
     const [rating, setRating] = useState(0);
@@ -15,7 +16,7 @@ const FilterSidebar = () => {  // eslint-disable-next-line
                 <h3>Filter</h3>
             </div>
             <div className="filter-section">
-                <h4>Categories</h4>
+                <h4><b>Categories</b></h4>
                 <div className="filter-options">
                     <label>
                         <input type="checkbox" name="gardening" className="green-checkbox" />
@@ -49,7 +50,7 @@ const FilterSidebar = () => {  // eslint-disable-next-line
                     </label>                </div>
             </div>
             <div className="filter-section">
-                <h4>Price Range</h4>
+                <h4><b>Price Range</b></h4>
                 <div className="price-range-inputs">
                     <input type="number" placeholder="Min" className="price-input" />
                     <input type="number" placeholder="Max" className="price-input" />
@@ -57,12 +58,20 @@ const FilterSidebar = () => {  // eslint-disable-next-line
                 <button className="set-price-btn">Set Price</button>
             </div>
             <div className="filter-section">
-                <h4>Rating</h4>
+                <h4><b>Rating</b></h4>
                 <StarRating onRatingSelect={handleRatingSelect} />
             </div>
-            <div className="ad-image">
-                <img src="https://via.placeholder.com/250x150" alt="Ad" className="rounded-image" />
+            <div className="ad-container">
+                <div className="ad-image">
+                    <img src={ad} alt="Ad" className="rounded-image" />
+                </div>
+                <div className="overlay">
+                    <h4 className="overlay-title"><b>GET 30% OFF    </b></h4>
+                    <p className="overlay-text">Share your referral code and get a discount!</p>
+                    <button className="share-button">Share</button>
+                </div>
             </div>
+
         </div>
     );
 };

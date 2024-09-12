@@ -25,6 +25,7 @@ const products = [
             image2
         ],
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        price: 74
     },
     {
         id: 2,
@@ -36,7 +37,8 @@ const products = [
             plant2,
             image3
         ],
-        description: "Etiam rhoncus suscipit eros, at blandit ante sodales suscipit. In nec ex id felis finibus pellentesque vitae nec nisl."
+        description: "Etiam rhoncus suscipit eros, at blandit ante sodales suscipit. In nec ex id felis finibus pellentesque vitae nec nisl.",
+        price: 99.32
     },
     {
         id: 3,
@@ -47,7 +49,8 @@ const products = [
             plant3,
             plant1
         ],
-        description: "Cras convallis magna id tincidunt auctor. In malesuada mauris eu sodales posuere. Aliquam vitae mi ante. Etiam euismod suscipit urna nec aliquet. Curabitur quis ornare dolor."
+        description: "Cras convallis magna id tincidunt auctor. In malesuada mauris eu sodales posuere. Aliquam vitae mi ante. Etiam euismod suscipit urna nec aliquet. Curabitur quis ornare dolor.",
+        price: 98.67
     },
     {
         id: 4,
@@ -59,7 +62,8 @@ const products = [
             plant1,
             image5
         ],
-        description: "Fusce luctus, ligula in aliquam sagittis, turpis massa pellentesque tellus, nec malesuada dui diam a nunc. Nullam lacinia lobortis urna ut pulvinar."
+        description: "Fusce luctus, ligula in aliquam sagittis, turpis massa pellentesque tellus, nec malesuada dui diam a nunc. Nullam lacinia lobortis urna ut pulvinar.",
+        price: 123.32
     },
     {
         id: 5,
@@ -69,7 +73,8 @@ const products = [
             plant2,
             image6
         ],
-        description: "Integer dignissim euismod lacus fermentum ultricies. Phasellus viverra, metus ac elementum bibendum, odio diam consectetur ex, in consectetur est odio nec arcu."
+        description: "Integer dignissim euismod lacus fermentum ultricies. Phasellus viverra, metus ac elementum bibendum, odio diam consectetur ex, in consectetur est odio nec arcu.",
+        price: 87.40
     },
     {
         id: 6,
@@ -80,7 +85,8 @@ const products = [
             image4,
             image2
         ],
-        description: "In eu massa in sapien molestie volutpat. Sed id dui ac tellus ornare consequat. Donec elementum congue nibh id rhoncus."
+        description: "In eu massa in sapien molestie volutpat. Sed id dui ac tellus ornare consequat. Donec elementum congue nibh id rhoncus.",
+        price: 52.20
     },
     {
         id: 7,
@@ -90,7 +96,8 @@ const products = [
             image2,
             plant5
         ],
-        description: "Aliquam tempus egestas erat eu volutpat. Donec vehicula pretium elit, vel rhoncus lectus consectetur vel. Aenean commodo hendrerit purus quis vulputate."
+        description: "Aliquam tempus egestas erat eu volutpat. Donec vehicula pretium elit, vel rhoncus lectus consectetur vel. Aenean commodo hendrerit purus quis vulputate.",
+        price: 100
     },
     {
         id: 8,
@@ -104,7 +111,8 @@ const products = [
             image6,
             image3
         ],
-        description: "Donec sollicitudin et erat non posuere. Donec gravida neque ante, non placerat velit blandit vel. Fusce fermentum eros ac velit sollicitudin tincidunt."
+        description: "Donec sollicitudin et erat non posuere. Donec gravida neque ante, non placerat velit blandit vel. Fusce fermentum eros ac velit sollicitudin tincidunt.",
+        price: 138.50
     }
 ];
 
