@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FilterSidebar.css";
 import StarRating from "./StarRating";
 
-const FilterSidebar = () => {
+const FilterSidebar = () => {  // eslint-disable-next-line
     const [rating, setRating] = useState(0);
 
     const handleRatingSelect = (selectedRating) => {

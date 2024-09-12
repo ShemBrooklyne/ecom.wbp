@@ -3,6 +3,8 @@ import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import FilterSidebar from "./FilterSidebar";
 import ProductCard from "./ProductCard";
 import ProductDetailsPanel from "./ProductDetailsPanel";
+import products from "../data/productsData";
+
 import "./Shop.css";
 
 const Shop = () => {
@@ -12,123 +14,6 @@ const Shop = () => {
     const [selectedSortOption, setSelectedSortOption] = useState("");
     const [heartState, setHeartState] = useState({}); // Heart state management
     const [cartState, setCartState] = useState({}); // Cart state management
-
-
-    // Sample products data 
-    const products = [
-        {
-            id: 1,
-            name: "Product 1",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/30",
-                "https://via.placeholder.com/30",
-                "https://via.placeholder.com/30",
-                "https://via.placeholder.com/30",
-                "https://via.placeholder.com/30"
-            ],
-            description: "This is a detailed description of Product 1. It may be long and should have a read more option if it's too lengthy."
-        },
-        {
-            id: 2,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 3,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 4,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 5,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 6,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 7,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 8,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 9,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-        {
-            id: 10,
-            name: "Product 2",
-            image: "https://via.placeholder.com/150",
-            relatedImages: [
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60",
-                "https://via.placeholder.com/60"
-            ],
-            description: "This is a description for Product 2."
-        },
-    ];
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);

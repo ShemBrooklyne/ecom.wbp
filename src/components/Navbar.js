@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaShoppingCart, FaHeart, FaUserCircle } from 'react-icons/fa'; // Icons for cart, heart, and profile
+import brandIcon from "../assets/images/oyotee_logo.png";
 import './Navbar.css';
 
 const Navbar = () => {
@@ -7,7 +8,7 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Left Section: Logo/Icon and Brand Name */}
       <div className="navbar-left">
-        <img src="https://via.placeholder.com/30" alt="Brand Icon" className="brand-icon" />
+        <img src={brandIcon} alt="Brand Icon" className="brand-icon" />
         <span className="brand-name">OYOTEE</span>
       </div>
 
