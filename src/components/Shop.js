@@ -11,6 +11,7 @@ const Shop = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedSortOption, setSelectedSortOption] = useState("");
     const [heartState, setHeartState] = useState({}); // Heart state management
+    const [cartState, setCartState] = useState({}); // Cart state management
 
 
     // Sample products data 
@@ -158,6 +159,13 @@ const Shop = () => {
         }));
     };
 
+    const handleAddToCartClick = (productId) => {
+        setCartState(prevState => ({
+            ...prevState,
+            [productId]: !prevState[productId]
+        }));
+    };
+
     return (
         <div className={`shop-container ${isProductDetailsOpen ? "details-open" : ""}`}>
             <FilterSidebar />
@@ -191,28 +199,31 @@ const Shop = () => {
                         ))}
                     </div>
                 </div>
-                <div className="products-container">
-                    <div className="product-grid">
-                        {products.map((product) => (
+                <div className="product-grid">
+                    {products.filter(product => product.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                        .map(product => (
                             <ProductCard
                                 key={product.id}
                                 product={product}
-                                onClick={() => handleProductClick(product)}
                                 isHeartClicked={heartState[product.id]}
                                 onHeartClick={() => handleHeartClick(product.id)}
+                                isAddedToCart={cartState[product.id]}
+                                onAddToCart={() => handleAddToCartClick(product.id)}
+                                onClick={handleProductClick}
                             />
                         ))}
-                    </div>
                 </div>
             </div>
-            <div className="column show">
+            {isProductDetailsOpen && selectedProduct && (
                 <ProductDetailsPanel
                     selectedProduct={selectedProduct}
                     onClose={closeProductDetails}
-                    isHeartActive={heartState[selectedProduct?.id]}
-                    onHeartClick={() => handleHeartClick(selectedProduct?.id)}
+                    isHeartActive={heartState[selectedProduct.id]}
+                    onHeartClick={() => handleHeartClick(selectedProduct.id)}
+                    isAddedToCart={cartState[selectedProduct.id]}
+                    onAddToCart={() => handleAddToCartClick(selectedProduct.id)}
                 />
-            </div>
+            )}
         </div>
     );
 };

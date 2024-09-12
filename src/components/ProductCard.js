@@ -3,7 +3,7 @@ import './ProductCard.css';
 import StarRating from './StarRating';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-const ProductCard = ({ product, onClick, isHeartClicked, onHeartClick }) => {
+const ProductCard = ({ product, onClick, isHeartClicked, onHeartClick, isAddedToCart, onAddToCart }) => {
     const handleHeartClick = (e) => {
         e.stopPropagation();
         onHeartClick(); // Call the parent function
@@ -11,7 +11,7 @@ const ProductCard = ({ product, onClick, isHeartClicked, onHeartClick }) => {
 
     const handleAddToCart = (e) => {
         e.stopPropagation();
-        // Add to cart functionality
+        onAddToCart(); // Call the parent function to toggle cart state
     };
 
     return (
@@ -35,13 +35,14 @@ const ProductCard = ({ product, onClick, isHeartClicked, onHeartClick }) => {
             </div>
             <div className="product-footer">
                 <div className="product-price">
-                    <span>Price: </span>${(product.price || 0).toFixed(2)}
+                    <div>Price</div>
+                    <div className="price-value">${(product.price || 0).toFixed(2)}</div>
                 </div>
                 <button
-                    className={`add-to-cart`}
+                    className={`add-to-cart-btn ${isAddedToCart ? 'added' : ''}`}
                     onClick={handleAddToCart}
                 >
-                    Add to Cart
+                    {isAddedToCart ? 'Added to Cart' : 'Add to Cart'}
                 </button>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import "./ProductDetailsPanel.css";
 
-const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartClick }) => {
+const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartClick, isAddedToCart, onAddToCart }) => {
     const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(true);
     const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
     const [activeTab, setActiveTab] = useState("Details");
@@ -30,6 +30,10 @@ const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartC
 
     const handleHeartClick = () => {
         onHeartClick(); // Call the parent function
+    };
+
+    const handleAddToCartClick = () => {
+        onAddToCart(); // Call the parent function to toggle cart state
     };
 
     if (!selectedProduct) {
@@ -83,9 +87,10 @@ const ProductDetailsPanel = ({ selectedProduct, onClose, isHeartActive, onHeartC
                     {isHeartActive ? <AiFillHeart /> : <AiOutlineHeart />}
                 </button>
                 <button 
-                    className="add-to-cart" 
+                    className={`add-to-cart ${isAddedToCart ? 'added' : ''}`} 
+                    onClick={handleAddToCartClick}
                 >
-                    Add to Cart
+                    {isAddedToCart ? 'Added to Cart' : 'Add to Cart'}
                 </button>
             </div>
         </div>
