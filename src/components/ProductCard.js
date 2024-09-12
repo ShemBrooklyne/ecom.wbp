@@ -8,12 +8,12 @@ const ProductCard = ({ product, onClick }) => {
     const [isAddedToCart, setAddedToCart] = useState(false);
 
     const handleHeartClick = (e) => {
-        e.stopPropagation(); // Prevent the card click event when clicking the heart button
+        e.stopPropagation();
         setHeartClicked(!isHeartClicked);
     };
 
     const handleAddToCart = (e) => {
-        e.stopPropagation(); // Prevent the card click event when clicking the button
+        e.stopPropagation();
         setAddedToCart(true);
     };
 

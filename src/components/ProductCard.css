@@ -22,15 +22,16 @@
 }
 
 .product-image {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
 }
 
 .heart-icon {
     position: absolute;
-    top: 5px; /* Moved up */
+    top: 10px;
     right: 10px;
     background: transparent;
     border: none;
@@ -41,11 +42,11 @@
 }
 
 .heart-icon.clicked {
-    background-color: rgba(255, 0, 0, 0.2); /* Fading red background */
+    background-color: rgba(255, 0, 0, 0.2);
 }
 
 .heart-icon svg {
-    color: #e50b0b; /* Red color for filled heart */
+    color: #e50b0b;
 }
 
 .product-name {
